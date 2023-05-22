@@ -28,9 +28,6 @@ jobs:
       - uses: actions/upload-pages-artifact@v1
         with:
           path: docs/.vitepress/dist
-      - name: Modify Artifact Paths
-        run: |
-          find docs/.vitepress/dist -type f | sed -e 'p;s#^\./##' | xargs -n2 mv
       - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v1
