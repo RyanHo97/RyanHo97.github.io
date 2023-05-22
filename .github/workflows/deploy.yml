@@ -22,6 +22,8 @@ jobs:
           node-version: 16
           cache: npm
       - run: npm ci
+      - name: Fix Path
+        run: sed -i 's#href="/#href="./#g' docs/.vitepress/dist/index.html
       - name: Build
         run: npm run docs:build
       - uses: actions/configure-pages@v2
