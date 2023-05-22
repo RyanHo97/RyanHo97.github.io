@@ -8,6 +8,7 @@ export default defineConfig({
   head:[
     ['link', { rel: 'icon', href: '/logo.png' }]
   ],
+  base:"/blog/",
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
