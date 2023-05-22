@@ -22,14 +22,14 @@ jobs:
           node-version: 16
           cache: npm
       - run: npm ci
-      - name: Fix Path
-        run: sed -i 's#href="/#href="./#g' docs/.vitepress/dist/index.html
       - name: Build
         run: npm run docs:build
+      - name: Move Dist
+        run: mv docs/.vitepress/dist/* .
       - uses: actions/configure-pages@v2
       - uses: actions/upload-pages-artifact@v1
         with:
-          path: docs/.vitepress/dist
+          path: .
       - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v1
